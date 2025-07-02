@@ -1,10 +1,10 @@
-use revolt_database::{
+use guilderia_database::{
     util::{permissions::DatabasePermissionQuery, reference::Reference},
     Database, User,
 };
-use revolt_models::v0;
-use revolt_permissions::{calculate_user_permissions, UserPermission};
-use revolt_result::Result;
+use guilderia_models::v0;
+use guilderia_permissions::{calculate_user_permissions, UserPermission};
+use guilderia_result::Result;
 use rocket::{serde::json::Json, State};
 
 /// # Fetch User Profile

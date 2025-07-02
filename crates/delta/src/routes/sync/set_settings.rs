@@ -1,8 +1,8 @@
-use revolt_database::{Database, User, UserSettingsImpl};
-use revolt_models::v0;
+use guilderia_database::{Database, User, UserSettingsImpl};
+use guilderia_models::v0;
 
 use chrono::prelude::*;
-use revolt_result::Result;
+use guilderia_result::Result;
 use rocket::{serde::json::Json, State};
 use rocket_empty::EmptyResponse;
 use std::collections::HashMap;

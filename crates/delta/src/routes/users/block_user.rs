@@ -1,7 +1,7 @@
-use revolt_database::util::reference::Reference;
-use revolt_database::{Database, User};
-use revolt_models::v0;
-use revolt_result::Result;
+use guilderia_database::util::reference::Reference;
+use guilderia_database::{Database, User};
+use guilderia_models::v0;
+use guilderia_result::Result;
 use rocket::serde::json::Json;
 use rocket::State;
 

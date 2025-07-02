@@ -1,9 +1,9 @@
-use revolt_database::{
+use guilderia_database::{
     util::{permissions::DatabasePermissionQuery, reference::Reference},
     Database, PartialMessage, User,
 };
-use revolt_permissions::{calculate_channel_permissions, ChannelPermission};
-use revolt_result::Result;
+use guilderia_permissions::{calculate_channel_permissions, ChannelPermission};
+use guilderia_result::Result;
 use rocket::State;
 use rocket_empty::EmptyResponse;
 

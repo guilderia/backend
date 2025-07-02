@@ -1,6 +1,6 @@
-use revolt_database::{util::reference::Reference, Database, User};
-use revolt_models::v0::FetchBotResponse;
-use revolt_result::{create_error, Result};
+use guilderia_database::{util::reference::Reference, Database, User};
+use guilderia_models::v0::FetchBotResponse;
+use guilderia_result::{create_error, Result};
 use rocket::{serde::json::Json, State};
 
 /// # Fetch Bot
@@ -31,8 +31,8 @@ pub async fn fetch_bot(
 #[cfg(test)]
 mod test {
     use crate::{rocket, util::test::TestHarness};
-    use revolt_database::Bot;
-    use revolt_models::v0;
+    use guilderia_database::Bot;
+    use guilderia_models::v0;
     use rocket::http::{Header, Status};
 
     #[rocket::async_test]

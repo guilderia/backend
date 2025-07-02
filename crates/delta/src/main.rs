@@ -1,16 +1,16 @@
 #[macro_use]
 extern crate rocket;
 #[macro_use]
-extern crate revolt_rocket_okapi;
+extern crate guilderia_rocket_okapi;
 #[macro_use]
 extern crate serde_json;
 
 pub mod routes;
 pub mod util;
 
-use revolt_config::config;
-use revolt_database::events::client::EventV1;
-use revolt_database::AMQP;
+use guilderia_config::config;
+use guilderia_database::events::client::EventV1;
+use guilderia_database::AMQP;
 use rocket::{Build, Rocket};
 use rocket_cors::{AllowedOrigins, CorsOptions};
 use rocket_prometheus::PrometheusMetrics;
@@ -33,7 +33,7 @@ pub async fn web() -> Rocket<Build> {
     config.preflight_checks();
 
     // Setup database
-    let db = revolt_database::DatabaseInfo::Auto.connect().await.unwrap();
+    let db = guilderia_database::DatabaseInfo::Auto.connect().await.unwrap();
     db.migrate_database().await.unwrap();
 
     // Setup Authifier event channel
@@ -73,16 +73,16 @@ pub async fn web() -> Rocket<Build> {
     .expect("Failed to create CORS.");
 
     // Configure Swagger
-    let swagger = revolt_rocket_okapi::swagger_ui::make_swagger_ui(
-        &revolt_rocket_okapi::swagger_ui::SwaggerUIConfig {
+    let swagger = guilderia_rocket_okapi::swagger_ui::make_swagger_ui(
+        &guilderia_rocket_okapi::swagger_ui::SwaggerUIConfig {
             url: "/openapi.json".to_owned(),
             ..Default::default()
         },
     )
     .into();
 
-    let swagger_0_8 = revolt_rocket_okapi::swagger_ui::make_swagger_ui(
-        &revolt_rocket_okapi::swagger_ui::SwaggerUIConfig {
+    let swagger_0_8 = guilderia_rocket_okapi::swagger_ui::make_swagger_ui(
+        &guilderia_rocket_okapi::swagger_ui::SwaggerUIConfig {
             url: "/0.8/openapi.json".to_owned(),
             ..Default::default()
         },
@@ -116,7 +116,7 @@ pub async fn web() -> Rocket<Build> {
     let amqp = AMQP::new(connection, channel);
 
     // Launch background task workers
-    revolt_database::tasks::start_workers(db.clone(), amqp.clone());
+    guilderia_database::tasks::start_workers(db.clone(), amqp.clone());
 
     // Configure Rocket
     let rocket = rocket::build();
@@ -146,7 +146,7 @@ pub async fn web() -> Rocket<Build> {
 #[launch]
 async fn rocket() -> _ {
     // Configure logging and environment
-    revolt_config::configure!(api);
+    guilderia_config::configure!(api);
 
     // Start web server
     web().await

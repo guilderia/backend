@@ -12,12 +12,12 @@ use axum::{
 };
 use axum_typed_multipart::{FieldData, TryFromMultipart, TypedMultipart};
 use lazy_static::lazy_static;
-use revolt_config::{config, report_internal_error};
-use revolt_database::{iso8601_timestamp::Timestamp, Database, FileHash, Metadata, User};
-use revolt_files::{
+use guilderia_config::{config, report_internal_error};
+use guilderia_database::{iso8601_timestamp::Timestamp, Database, FileHash, Metadata, User};
+use guilderia_files::{
     create_thumbnail, decode_image, fetch_from_s3, upload_to_s3, AUTHENTICATION_TAG_SIZE_BYTES,
 };
-use revolt_result::{create_error, Error, Result};
+use guilderia_result::{create_error, Error, Result};
 use serde::{Deserialize, Serialize};
 use sha2::Digest;
 use tempfile::NamedTempFile;

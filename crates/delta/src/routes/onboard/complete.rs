@@ -1,9 +1,9 @@
 use authifier::models::Session;
 use once_cell::sync::Lazy;
 use regex::Regex;
-use revolt_database::{Database, User};
-use revolt_models::v0;
-use revolt_result::{create_error, Result};
+use guilderia_database::{Database, User};
+use guilderia_models::v0;
+use guilderia_result::{create_error, Result};
 
 use rocket::{serde::json::Json, State};
 use serde::{Deserialize, Serialize};

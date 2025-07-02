@@ -1,9 +1,9 @@
-use revolt_database::{
+use guilderia_database::{
     util::{permissions::DatabasePermissionQuery, reference::Reference},
     Database, User,
 };
-use revolt_permissions::PermissionQuery;
-use revolt_result::{create_error, Result};
+use guilderia_permissions::PermissionQuery;
+use guilderia_result::{create_error, Result};
 use rocket::State;
 use rocket_empty::EmptyResponse;
 

@@ -11,8 +11,8 @@ use rocket::request::{FromRequest, Outcome};
 use rocket::serde::json::Json;
 use rocket::{Data, Request, Response};
 
-use revolt_rocket_okapi::gen::OpenApiGenerator;
-use revolt_rocket_okapi::request::{OpenApiFromRequest, RequestHeaderInput};
+use guilderia_rocket_okapi::gen::OpenApiGenerator;
+use guilderia_rocket_okapi::request::{OpenApiFromRequest, RequestHeaderInput};
 
 use serde::Serialize;
 

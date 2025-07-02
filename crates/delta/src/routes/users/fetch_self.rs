@@ -1,6 +1,6 @@
-use revolt_database::User;
-use revolt_models::v0;
-use revolt_result::Result;
+use guilderia_database::User;
+use guilderia_models::v0;
+use guilderia_result::Result;
 use rocket::serde::json::Json;
 
 /// # Fetch Self

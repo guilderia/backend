@@ -1,8 +1,8 @@
-use revolt_database::util::reference::Reference;
-use revolt_database::{Database, File, PartialWebhook};
-use revolt_models::v0::{DataEditWebhook, Webhook};
-use revolt_models::validator::Validate;
-use revolt_result::{create_error, Result};
+use guilderia_database::util::reference::Reference;
+use guilderia_database::{Database, File, PartialWebhook};
+use guilderia_models::v0::{DataEditWebhook, Webhook};
+use guilderia_models::validator::Validate;
+use guilderia_result::{create_error, Result};
 use rocket::{serde::json::Json, State};
 
 /// # Edits a webhook

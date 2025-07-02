@@ -30,18 +30,18 @@ async fn main() -> Result<(), std::io::Error> {
         components(
             schemas(
                 api::RootResponse,
-                revolt_result::Error,
-                revolt_result::ErrorType,
-                revolt_models::v0::ImageSize,
-                revolt_models::v0::Image,
-                revolt_models::v0::Video,
-                revolt_models::v0::TwitchType,
-                revolt_models::v0::LightspeedType,
-                revolt_models::v0::BandcampType,
-                revolt_models::v0::Special,
-                revolt_models::v0::WebsiteMetadata,
-                revolt_models::v0::Text,
-                revolt_models::v0::Embed
+                guilderia_result::Error,
+                guilderia_result::ErrorType,
+                guilderia_models::v0::ImageSize,
+                guilderia_models::v0::Image,
+                guilderia_models::v0::Video,
+                guilderia_models::v0::TwitchType,
+                guilderia_models::v0::LightspeedType,
+                guilderia_models::v0::BandcampType,
+                guilderia_models::v0::Special,
+                guilderia_models::v0::WebsiteMetadata,
+                guilderia_models::v0::Text,
+                guilderia_models::v0::Embed
             )
         )
     )]

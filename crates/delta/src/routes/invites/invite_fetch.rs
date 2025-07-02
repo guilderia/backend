@@ -1,6 +1,6 @@
-use revolt_database::{util::reference::Reference, Channel, Database, Invite};
-use revolt_models::v0;
-use revolt_result::Result;
+use guilderia_database::{util::reference::Reference, Channel, Database, Invite};
+use guilderia_models::v0;
+use guilderia_result::Result;
 use rocket::{serde::json::Json, State};
 
 /// # Fetch Invite
@@ -80,8 +80,8 @@ pub async fn fetch(db: &State<Database>, target: Reference) -> Result<Json<v0::I
 #[cfg(test)]
 mod test {
     use crate::{rocket, util::test::TestHarness};
-    use revolt_database::{Channel, Server};
-    use revolt_models::v0::{
+    use guilderia_database::{Channel, Server};
+    use guilderia_models::v0::{
         DataCreateGroup, DataCreateServerChannel, Invite, InviteResponse, LegacyServerChannelType,
     };
     use rocket::http::Status;

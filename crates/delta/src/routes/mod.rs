@@ -1,5 +1,5 @@
-use revolt_config::Settings;
-use revolt_rocket_okapi::{revolt_okapi::openapi3::OpenApi, settings::OpenApiSettings};
+use guilderia_config::Settings;
+use guilderia_rocket_okapi::{revolt_okapi::openapi3::OpenApi, settings::OpenApiSettings};
 pub use rocket::http::Status;
 pub use rocket::response::Redirect;
 use rocket::{Build, Rocket};
@@ -109,13 +109,13 @@ pub fn mount(config: Settings, mut rocket: Rocket<Build>) -> Rocket<Build> {
 }
 
 fn custom_openapi_spec() -> OpenApi {
-    use revolt_rocket_okapi::revolt_okapi::openapi3::*;
+    use guilderia_rocket_okapi::revolt_okapi::openapi3::*;
 
     let mut extensions = schemars::Map::new();
     extensions.insert(
         "x-logo".to_owned(),
         json!({
-            "url": "https://revolt.chat/header.png",
+            "url": "https://guilderia.com/header.png",
             "altText": "Revolt Header"
         }),
     );
@@ -205,18 +205,18 @@ fn custom_openapi_spec() -> OpenApi {
     OpenApi {
         openapi: OpenApi::default_version(),
         info: Info {
-            title: "Revolt API".to_owned(),
+            title: "Guilderia API".to_owned(),
             description: Some("Open source user-first chat platform.".to_owned()),
-            terms_of_service: Some("https://revolt.chat/terms".to_owned()),
+            terms_of_service: Some("https://guilderia.com/terms".to_owned()),
             contact: Some(Contact {
-                name: Some("Revolt Support".to_owned()),
-                url: Some("https://revolt.chat".to_owned()),
-                email: Some("contact@revolt.chat".to_owned()),
+                name: Some("Guilderia Support".to_owned()),
+                url: Some("https://support.guilderia.com".to_owned()),
+                email: Some("contact@guilderia.com".to_owned()),
                 ..Default::default()
             }),
             license: Some(License {
                 name: "AGPLv3".to_owned(),
-                url: Some("https://github.com/revoltchat/delta/blob/master/LICENSE".to_owned()),
+                url: Some("https://github.com/guilderia/delta/blob/master/LICENSE".to_owned()),
                 ..Default::default()
             }),
             version: env!("CARGO_PKG_VERSION").to_string(),
@@ -224,29 +224,29 @@ fn custom_openapi_spec() -> OpenApi {
         },
         servers: vec![
             Server {
-                url: "https://api.revolt.chat".to_owned(),
-                description: Some("Revolt Production".to_owned()),
+                url: "https://api.guilderia.com".to_owned(),
+                description: Some("Guilderia Production".to_owned()),
                 ..Default::default()
             },
             Server {
-                url: "https://revolt.chat/api".to_owned(),
-                description: Some("Revolt Staging".to_owned()),
+                url: "https://guilderia.com/api".to_owned(),
+                description: Some("Guilderia Staging".to_owned()),
                 ..Default::default()
             },
             Server {
-                url: "http://local.revolt.chat:14702".to_owned(),
-                description: Some("Local Revolt Environment".to_owned()),
+                url: "http://local.guilderia.com:14702".to_owned(),
+                description: Some("Local Guilderia Environment".to_owned()),
                 ..Default::default()
             },
             Server {
-                url: "http://local.revolt.chat:14702/0.8".to_owned(),
-                description: Some("Local Revolt Environment (v0.8)".to_owned()),
+                url: "http://local.guilderia.com:14702/0.8".to_owned(),
+                description: Some("Local Guilderia Environment (v0.8)".to_owned()),
                 ..Default::default()
             },
         ],
         external_docs: Some(ExternalDocs {
-            url: "https://developers.revolt.chat".to_owned(),
-            description: Some("Revolt Developer Documentation".to_owned()),
+            url: "https://developers.guilderia.com".to_owned(),
+            description: Some("Guilderia Developer Documentation".to_owned()),
             ..Default::default()
         }),
         extensions,

@@ -1,5 +1,5 @@
 use rocket::Route;
-use revolt_rocket_okapi::revolt_okapi::openapi3::OpenApi;
+use guilderia_rocket_okapi::revolt_okapi::openapi3::OpenApi;
 
 mod webhook_delete;
 mod webhook_delete_token;

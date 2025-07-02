@@ -1,7 +1,7 @@
 use axum::{extract::Query, response::IntoResponse, routing::get, Json, Router};
 use reqwest::header;
-use revolt_models::v0::Embed;
-use revolt_result::{create_error, Result};
+use guilderia_models::v0::Embed;
+use guilderia_result::{create_error, Result};
 use serde::{Deserialize, Serialize};
 use utoipa::ToSchema;
 

@@ -1,13 +1,13 @@
 use chrono::{Duration, Utc};
-use revolt_database::util::permissions::DatabasePermissionQuery;
-use revolt_database::{
+use guilderia_database::util::permissions::DatabasePermissionQuery;
+use guilderia_database::{
     util::idempotency::IdempotencyKey, util::reference::Reference, Database, User,
 };
-use revolt_database::{Interactions, Message, AMQP};
-use revolt_models::v0;
-use revolt_permissions::PermissionQuery;
-use revolt_permissions::{calculate_channel_permissions, ChannelPermission};
-use revolt_result::{create_error, Result};
+use guilderia_database::{Interactions, Message, AMQP};
+use guilderia_models::v0;
+use guilderia_permissions::PermissionQuery;
+use guilderia_permissions::{calculate_channel_permissions, ChannelPermission};
+use guilderia_result::{create_error, Result};
 use rocket::serde::json::Json;
 use rocket::State;
 use validator::Validate;
@@ -115,13 +115,13 @@ mod test {
     use std::collections::HashMap;
 
     use crate::{rocket, util::test::TestHarness};
-    use revolt_database::{
+    use guilderia_database::{
         util::{idempotency::IdempotencyKey, reference::Reference},
         Channel, Member, Message, MessageFlagsValue, PartialChannel, PartialMember, Role, Server,
     };
-    use revolt_models::v0::{self, DataCreateServerChannel, MessageFlags};
-    use revolt_permissions::{ChannelPermission, OverrideField};
-    use revolt_result::ErrorType;
+    use guilderia_models::v0::{self, DataCreateServerChannel, MessageFlags};
+    use guilderia_permissions::{ChannelPermission, OverrideField};
+    use guilderia_result::ErrorType;
 
     #[rocket::async_test]
     async fn message_mention_constraints() {

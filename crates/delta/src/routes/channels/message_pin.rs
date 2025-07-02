@@ -1,7 +1,7 @@
-use revolt_database::{util::{permissions::DatabasePermissionQuery, reference::Reference}, Channel, Database, PartialMessage, SystemMessage, User, AMQP};
-use revolt_models::v0::MessageAuthor;
-use revolt_permissions::{calculate_channel_permissions, ChannelPermission};
-use revolt_result::{create_error, Result};
+use guilderia_database::{util::{permissions::DatabasePermissionQuery, reference::Reference}, Channel, Database, PartialMessage, SystemMessage, User, AMQP};
+use guilderia_models::v0::MessageAuthor;
+use guilderia_permissions::{calculate_channel_permissions, ChannelPermission};
+use guilderia_result::{create_error, Result};
 use rocket::State;
 use rocket_empty::EmptyResponse;
 
@@ -68,12 +68,12 @@ pub async fn message_pin(
 #[cfg(test)]
 mod test {
     use crate::{rocket, util::test::TestHarness};
-    use revolt_database::{
+    use guilderia_database::{
         events::client::EventV1,
         util::{idempotency::IdempotencyKey, reference::Reference},
         Member, Message, Server,
     };
-    use revolt_models::v0::{self, SystemMessage};
+    use guilderia_models::v0::{self, SystemMessage};
     use rocket::http::{Header, Status};
 
     #[rocket::async_test]

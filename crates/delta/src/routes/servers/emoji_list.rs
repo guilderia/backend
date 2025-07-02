@@ -1,10 +1,10 @@
-use revolt_database::{
+use guilderia_database::{
     util::{permissions::DatabasePermissionQuery, reference::Reference},
     Database, User,
 };
-use revolt_models::v0;
-use revolt_permissions::PermissionQuery;
-use revolt_result::{create_error, Result};
+use guilderia_models::v0;
+use guilderia_permissions::PermissionQuery;
+use guilderia_result::{create_error, Result};
 use rocket::{serde::json::Json, State};
 
 /// # Fetch Server Emoji

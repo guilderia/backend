@@ -1,4 +1,4 @@
-use revolt_rocket_okapi::revolt_okapi::openapi3::OpenApi;
+use guilderia_rocket_okapi::guilderia_okapi::openapi3::OpenApi;
 use rocket::Route;
 
 mod ban_create;

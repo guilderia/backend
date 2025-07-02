@@ -1,7 +1,7 @@
-// use revolt_database::util::reference::Reference;
-use revolt_database::{Database, User, AMQP};
-use revolt_models::v0;
-use revolt_result::{create_error, Result};
+// use guilderia_database::util::reference::Reference;
+use guilderia_database::{Database, User, AMQP};
+use guilderia_models::v0;
+use guilderia_result::{create_error, Result};
 use rocket::serde::json::Json;
 use rocket::State;
 

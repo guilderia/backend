@@ -5,12 +5,12 @@ use authifier::{
 use futures::StreamExt;
 use rand::Rng;
 use redis_kiss::redis::aio::PubSub;
-use revolt_database::{
+use guilderia_database::{
     events::client::EventV1, Channel, Database, Member, Message, Server, User, AMQP,
 };
-use revolt_database::{util::idempotency::IdempotencyKey, Role};
-use revolt_models::v0;
-use revolt_permissions::OverrideField;
+use guilderia_database::{util::idempotency::IdempotencyKey, Role};
+use guilderia_models::v0;
+use guilderia_permissions::OverrideField;
 use rocket::http::Header;
 use rocket::local::asynchronous::{Client, LocalRequest, LocalResponse};
 

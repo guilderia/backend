@@ -6,10 +6,10 @@ use reqwest::{
     header::{self, CONTENT_TYPE},
     redirect, Client, Response,
 };
-use revolt_config::report_internal_error;
-use revolt_files::{create_thumbnail, decode_image, image_size_vec, is_valid_image, video_size};
-use revolt_models::v0::{Embed, Image, ImageSize, Video};
-use revolt_result::{create_error, Error, Result};
+use guilderia_config::report_internal_error;
+use guilderia_files::{create_thumbnail, decode_image, image_size_vec, is_valid_image, video_size};
+use guilderia_models::v0::{Embed, Image, ImageSize, Video};
+use guilderia_result::{create_error, Error, Result};
 use std::{
     io::{Cursor, Write},
     time::Duration,
@@ -263,7 +263,7 @@ impl Request {
                 if RE_USER_AGENT_SPOOFING_AS_DISCORD.is_match(url) {
                     "Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)"
                 } else {
-                    "Mozilla/5.0 (compatible; January/2.0; +https://github.com/revoltchat/backend)"
+                    "Mozilla/5.0 (compatible; January/2.0; +https://github.com/guilderia/backend)"
                 },
             )
             .header("Accept-Language", "en-US,en;q=0.5")

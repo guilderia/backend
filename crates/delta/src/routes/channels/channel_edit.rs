@@ -1,10 +1,10 @@
-use revolt_database::{
+use guilderia_database::{
     util::{permissions::DatabasePermissionQuery, reference::Reference},
     Channel, Database, File, PartialChannel, SystemMessage, User, AMQP,
 };
-use revolt_models::v0;
-use revolt_permissions::{calculate_channel_permissions, ChannelPermission};
-use revolt_result::{create_error, Result};
+use guilderia_models::v0;
+use guilderia_permissions::{calculate_channel_permissions, ChannelPermission};
+use guilderia_result::{create_error, Result};
 use rocket::{serde::json::Json, State};
 use validator::Validate;
 

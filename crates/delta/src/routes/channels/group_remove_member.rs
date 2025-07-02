@@ -1,6 +1,6 @@
-use revolt_database::{util::reference::Reference, Channel, Database, User, AMQP};
-use revolt_permissions::ChannelPermission;
-use revolt_result::{create_error, Result};
+use guilderia_database::{util::reference::Reference, Channel, Database, User, AMQP};
+use guilderia_permissions::ChannelPermission;
+use guilderia_result::{create_error, Result};
 
 use rocket::State;
 use rocket_empty::EmptyResponse;
@@ -54,8 +54,8 @@ pub async fn remove_member(
 #[cfg(test)]
 mod test {
     use crate::{rocket, util::test::TestHarness};
-    use revolt_database::{events::client::EventV1, Channel, RelationshipStatus};
-    use revolt_models::v0;
+    use guilderia_database::{events::client::EventV1, Channel, RelationshipStatus};
+    use guilderia_models::v0;
     use rocket::http::{Header, Status};
 
     #[rocket::async_test]

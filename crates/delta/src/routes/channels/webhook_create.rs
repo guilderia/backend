@@ -1,12 +1,12 @@
-use revolt_database::{
+use guilderia_database::{
     util::{permissions::DatabasePermissionQuery, reference::Reference},
     Channel, Database, File, User, Webhook,
 };
-use revolt_models::v0;
-use revolt_permissions::{
+use guilderia_models::v0;
+use guilderia_permissions::{
     calculate_channel_permissions, ChannelPermission, DEFAULT_WEBHOOK_PERMISSIONS,
 };
-use revolt_result::{create_error, Result};
+use guilderia_result::{create_error, Result};
 use rocket::{serde::json::Json, State};
 use ulid::Ulid;
 use validator::Validate;

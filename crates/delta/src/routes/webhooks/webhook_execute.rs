@@ -1,11 +1,11 @@
-use revolt_config::config;
-use revolt_database::{
+use guilderia_config::config;
+use guilderia_database::{
     util::{idempotency::IdempotencyKey, reference::Reference},
     Database, Message, AMQP,
 };
-use revolt_models::v0;
-use revolt_permissions::{ChannelPermission, PermissionValue};
-use revolt_result::{create_error, Result};
+use guilderia_models::v0;
+use guilderia_permissions::{ChannelPermission, PermissionValue};
+use guilderia_result::{create_error, Result};
 use rocket::{serde::json::Json, State};
 
 use validator::Validate;

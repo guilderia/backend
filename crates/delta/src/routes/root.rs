@@ -1,5 +1,5 @@
-use revolt_config::config;
-use revolt_result::Result;
+use guilderia_config::config;
+use guilderia_result::Result;
 use rocket::serde::json::Json;
 use serde::Serialize;
 
@@ -34,7 +34,7 @@ pub struct VoiceFeature {
 
 /// # Feature Configuration
 #[derive(Serialize, JsonSchema, Debug)]
-pub struct RevoltFeatures {
+pub struct GuilderiaFeatures {
     /// hCaptcha configuration
     pub captcha: CaptchaFeature,
     /// Whether email verification is enabled
@@ -66,11 +66,11 @@ pub struct BuildInformation {
 
 /// # Server Configuration
 #[derive(Serialize, JsonSchema, Debug)]
-pub struct RevoltConfig {
-    /// Revolt API Version
-    pub revolt: String,
+pub struct GuilderiaConfig {
+    /// Guilderia API Version
+    pub guilderia: String,
     /// Features enabled on this Revolt node
-    pub features: RevoltFeatures,
+    pub features: GuilderiaFeatures,
     /// WebSocket URL
     pub ws: String,
     /// URL pointing to the client serving this node
@@ -86,12 +86,12 @@ pub struct RevoltConfig {
 /// Fetch the server configuration for this Revolt instance.
 #[openapi(tag = "Core")]
 #[get("/")]
-pub async fn root() -> Result<Json<RevoltConfig>> {
+pub async fn root() -> Result<Json<GuilderiaConfig>> {
     let config = config().await;
 
-    Ok(Json(RevoltConfig {
+    Ok(Json(GuilderiaConfig {
         revolt: env!("CARGO_PKG_VERSION").to_string(),
-        features: RevoltFeatures {
+        features: GuilderiaFeatures {
             captcha: CaptchaFeature {
                 enabled: !config.api.security.captcha.hcaptcha_key.is_empty(),
                 key: config.api.security.captcha.hcaptcha_sitekey,

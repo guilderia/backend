@@ -1,7 +1,7 @@
-use revolt_database::{util::reference::Reference, Database, Message, AMQP};
-use revolt_models::v0::{MessageAuthor, SendableEmbed, Webhook};
-use revolt_result::{create_error, Error, Result};
-use revolt_rocket_okapi::{
+use guilderia_database::{util::reference::Reference, Database, Message, AMQP};
+use guilderia_models::v0::{MessageAuthor, SendableEmbed, Webhook};
+use guilderia_result::{create_error, Error, Result};
+use guilderia_rocket_okapi::{
     gen::OpenApiGenerator,
     request::{OpenApiFromRequest, RequestHeaderInput},
     revolt_okapi::openapi3::{MediaType, Parameter, ParameterValue},

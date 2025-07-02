@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use lazy_static::lazy_static;
 use regex::Regex;
-use revolt_models::v0::{
+use guilderia_models::v0::{
     BandcampType, Image, ImageSize, LightspeedType, Special, TwitchType, Video, WebsiteMetadata,
 };
 use scraper::{Html, Selector};
