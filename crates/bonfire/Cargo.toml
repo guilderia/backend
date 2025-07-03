@@ -1,5 +1,5 @@
 [package]
-name = "revolt-bonfire"
+name = "guilderia-bonfire"
 version = "0.8.7"
 license = "AGPL-3.0-or-later"
 edition = "2021"
@@ -37,12 +37,12 @@ async-std = { version = "1.8.0", features = [
 
 # core
 authifier = { version = "1.0.15" }
-revolt-result = { path = "../core/result" }
-revolt-models = { path = "../core/models" }
-revolt-config = { path = "../core/config" }
-revolt-database = { path = "../core/database" }
-revolt-permissions = { version = "0.8.7", path = "../core/permissions" }
-revolt-presence = { path = "../core/presence", features = ["redis-is-patched"] }
+guilderia-result = { path = "../core/result" }
+guilderia-models = { path = "../core/models" }
+guilderia-config = { path = "../core/config" }
+guilderia-database = { path = "../core/database" }
+guilderia-permissions = { version = "0.8.7", path = "../core/permissions" }
+guilderia-presence = { path = "../core/presence", features = ["redis-is-patched"] }
 
 # redis
 fred = { version = "8.0.1", features = ["subscriber-client"] }

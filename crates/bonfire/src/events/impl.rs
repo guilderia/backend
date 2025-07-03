@@ -1,15 +1,15 @@
 use std::collections::HashSet;
 
 use futures::future::join_all;
-use revolt_database::{
+use guilderia_database::{
     events::client::{EventV1, ReadyPayloadFields},
     util::permissions::DatabasePermissionQuery,
     Channel, Database, Member, MemberCompositeKey, Presence, RelationshipStatus,
 };
-use revolt_models::v0;
-use revolt_permissions::{calculate_channel_permissions, ChannelPermission};
-use revolt_presence::filter_online;
-use revolt_result::Result;
+use guilderia_models::v0;
+use guilderia_permissions::{calculate_channel_permissions, ChannelPermission};
+use guilderia_presence::filter_online;
+use guilderia_result::Result;
 
 use super::state::{Cache, State};
 
