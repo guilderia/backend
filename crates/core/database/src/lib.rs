@@ -39,7 +39,7 @@ macro_rules! query {
     ( $self: ident, $type: ident, $collection: expr, $($rest:expr),+ ) => {
         $self.$type($collection, $($rest),+).await
             .map_err(|err| {
-                revolt_config::capture_internal_error!(err);
+                guilderia_config::capture_internal_error!(err);
                 create_database_error!(stringify!($type), $collection)
             })
     };

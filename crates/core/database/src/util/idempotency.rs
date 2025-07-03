@@ -1,9 +1,9 @@
 use std::num::NonZeroUsize;
 
-use revolt_result::{create_error, Result};
+use guilderia_result::{create_error, Result};
 
 #[cfg(feature = "rocket-impl")]
-use revolt_result::Error;
+use guilderia_result::Error;
 
 use async_std::sync::Mutex;
 use once_cell::sync::Lazy;
@@ -47,7 +47,7 @@ impl IdempotencyKey {
 use revolt_rocket_okapi::{
     gen::OpenApiGenerator,
     request::{OpenApiFromRequest, RequestHeaderInput},
-    revolt_okapi::openapi3::{Parameter, ParameterValue},
+    guilderia_okapi::openapi3::{Parameter, ParameterValue},
 };
 
 #[cfg(feature = "rocket-impl")]
@@ -59,7 +59,7 @@ impl<'r> OpenApiFromRequest<'r> for IdempotencyKey {
         _gen: &mut OpenApiGenerator,
         _name: String,
         _required: bool,
-    ) -> revolt_rocket_okapi::Result<RequestHeaderInput> {
+    ) -> guilderia_rocket_okapi::Result<RequestHeaderInput> {
         Ok(RequestHeaderInput::Parameter(Parameter {
             name: "Idempotency-Key".to_string(),
             description: Some("Unique key to prevent duplicate requests".to_string()),

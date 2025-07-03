@@ -5,8 +5,8 @@ use aes_gcm::{
     Aes256Gcm, Key, KeyInit, Nonce,
 };
 use image::{DynamicImage, ImageBuffer};
-use revolt_config::{config, report_internal_error, FilesS3};
-use revolt_result::{create_error, Result};
+use guilderia_config::{config, report_internal_error, FilesS3};
+use guilderia_result::{create_error, Result};
 
 use aws_sdk_s3::{
     config::{Credentials, Region},

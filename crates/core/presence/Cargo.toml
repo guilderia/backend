@@ -1,10 +1,10 @@
 [package]
-name = "revolt-presence"
+name = "guilderia-presence"
 version = "0.8.7"
 edition = "2021"
 license = "AGPL-3.0-or-later"
 authors = ["Paul Makles <me@insrt.uk>"]
-description = "Revolt Backend: User Presence"
+description = "Guilderia Backend: User Presence"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

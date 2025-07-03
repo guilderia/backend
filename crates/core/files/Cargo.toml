@@ -1,5 +1,5 @@
 [package]
-name = "revolt-files"
+name = "guilderia-files"
 version = "0.8.7"
 edition = "2021"
 license = "AGPL-3.0-or-later"
@@ -20,10 +20,10 @@ typenum = "1.17.0"
 aws-config = "1.5.5"
 aws-sdk-s3 = { version = "1.46.0", features = ["behavior-version-latest"] }
 
-revolt-config = { version = "0.8.7", path = "../config", features = [
+guilderia-config = { version = "0.8.7", path = "../config", features = [
     "report-macros",
 ] }
-revolt-result = { version = "0.8.7", path = "../result" }
+guilderia-result = { version = "0.8.7", path = "../result" }
 
 # image processing
 jxl-oxide = "0.8.1"

@@ -3,15 +3,15 @@ use crate::{Database, Message, AMQP};
 
 use deadqueue::limited::Queue;
 use once_cell::sync::Lazy;
-use revolt_config::capture_message;
-use revolt_models::v0::PushNotification;
+use guilderia_config::capture_message;
+use guilderia_models::v0::PushNotification;
 use std::{
     collections::{HashMap, HashSet},
     time::Duration,
 };
 use validator::HasLen;
 
-use revolt_result::Result;
+use guilderia_result::Result;
 
 use super::DelayedTask;
 use crate::Channel::{TextChannel, VoiceChannel};
@@ -108,7 +108,7 @@ pub async fn handle_ack_event(
                         .ack_message(user.to_string(), channel.to_string(), id.to_owned())
                         .await
                     {
-                        revolt_config::capture_error(&err);
+                        guilderia_config::capture_error(&err);
                     }
                 };
             }
@@ -172,7 +172,7 @@ pub async fn handle_ack_event(
                     .message_sent(recipients.clone(), push.clone().unwrap())
                     .await
                 {
-                    revolt_config::capture_error(&err);
+                    guilderia_config::capture_error(&err);
                 }
 
                 if message.contains_mass_push_mention() {
@@ -196,7 +196,7 @@ pub async fn handle_ack_event(
                         if let Err(err) =
                             amqp.mass_mention_message_sent(server, mass_mentions).await
                         {
-                            revolt_config::capture_error(&err);
+                            guilderia_config::capture_error(&err);
                         }
                     }
                     _ => {

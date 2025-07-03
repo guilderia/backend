@@ -1,7 +1,7 @@
 use std::time::SystemTime;
 
 use indexmap::{IndexMap, IndexSet};
-use revolt_config::config;
+use guilderia_config::config;
 
 #[cfg(feature = "validator")]
 use validator::Validate;

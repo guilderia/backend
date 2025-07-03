@@ -1,14 +1,14 @@
-use revolt_okapi::openapi3::SchemaObject;
-use revolt_rocket_okapi::revolt_okapi::openapi3;
+use guilderia_okapi::openapi3::SchemaObject;
+use guilderia_rocket_okapi::guilderia_okapi::openapi3;
 use schemars::schema::Schema;
 
 use crate::Error;
 
-impl revolt_rocket_okapi::response::OpenApiResponderInner for Error {
+impl guilderia_rocket_okapi::response::OpenApiResponderInner for Error {
     fn responses(
-        gen: &mut revolt_rocket_okapi::gen::OpenApiGenerator,
-    ) -> std::result::Result<openapi3::Responses, revolt_rocket_okapi::OpenApiError> {
-        let mut content = revolt_okapi::Map::new();
+        gen: &mut guilderia_rocket_okapi::gen::OpenApiGenerator,
+    ) -> std::result::Result<openapi3::Responses, guilderia_rocket_okapi::OpenApiError> {
+        let mut content = guilderia_okapi::Map::new();
 
         let settings = schemars::gen::SchemaSettings::default().with(|s| {
             s.option_nullable = true;

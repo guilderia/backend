@@ -4,7 +4,7 @@ version = "0.8.7"
 edition = "2021"
 license = "AGPL-3.0-or-later"
 authors = ["Paul Makles <me@insrt.uk>"]
-description = "Revolt Backend: Database Implementation"
+description = "Guilderia Backend: Database Implementation"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -15,7 +15,7 @@ mongodb = ["dep:mongodb", "bson"]
 # ... Other
 tasks = ["isahc", "linkify", "url-escape"]
 async-std-runtime = ["async-std"]
-rocket-impl = ["rocket", "schemars", "revolt_okapi", "revolt_rocket_okapi"]
+rocket-impl = ["rocket", "schemars", "guilderia_okapi", "guilderia_rocket_okapi"]
 axum-impl = ["axum"]
 redis-is-patched = ["guilderia-presence/redis-is-patched"]
 

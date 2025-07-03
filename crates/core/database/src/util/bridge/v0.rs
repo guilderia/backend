@@ -1,6 +1,6 @@
 use iso8601_timestamp::Timestamp;
-use revolt_models::v0::*;
-use revolt_permissions::{calculate_user_permissions, UserPermission};
+use guilderia_models::v0::*;
+use guilderia_permissions::{calculate_user_permissions, UserPermission};
 
 use crate::{util::permissions::DatabasePermissionQuery, Database};
 
