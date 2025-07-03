@@ -1,5 +1,5 @@
 use futures::StreamExt;
-use revolt_result::Result;
+use guilderia_result::Result;
 
 use crate::{FieldsWebhook, PartialWebhook, Webhook};
 use crate::{IntoDocumentPath, MongoDb};

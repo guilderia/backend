@@ -1,5 +1,5 @@
 # Build Stage
-FROM ghcr.io/revoltchat/base:latest AS builder
+FROM ghcr.io/guilderia/base:latest AS builder
 FROM debian:12 AS debian
 
 # Bundle Stage
@@ -8,4 +8,4 @@ COPY --from=builder /home/rust/src/target/release/revolt-pushd ./
 COPY --from=debian /usr/bin/uname /usr/bin/uname
 
 USER nonroot
-CMD ["./revolt-pushd"]
+CMD ["./guilderia-pushd"]

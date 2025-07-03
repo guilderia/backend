@@ -2,9 +2,9 @@ use std::io::{Cursor, Read};
 
 use exif::Reader;
 use image::{ImageFormat, ImageReader};
-use revolt_config::report_internal_error;
-use revolt_database::Metadata;
-use revolt_result::{create_error, Result};
+use guilderia_config::report_internal_error;
+use guilderia_database::Metadata;
+use guilderia_result::{create_error, Result};
 use tempfile::NamedTempFile;
 use tokio::process::Command;
 
@@ -21,11 +21,11 @@ pub async fn strip_metadata(
             // "image/jpeg" | "image/png" => {
             //     // use little_exif to strip metadata except for orientation and colour profile
             //     // PNGs must also be re-encoded to mitigate CVE-2023-21036
-            //     let metadata = revolt_little_exif::metadata::Metadata::new_from_path_with_filetype(
+            //     let metadata = guilderia_little_exif::metadata::Metadata::new_from_path_with_filetype(
             //         file.path(),
             //         match mime {
-            //             "image/jpeg" => revolt_little_exif::filetype::FileExtension::JPEG,
-            //             "image/png" => revolt_little_exif::filetype::FileExtension::PNG {
+            //             "image/jpeg" => guilderia_little_exif::filetype::FileExtension::JPEG,
+            //             "image/png" => guilderia_little_exif::filetype::FileExtension::PNG {
             //                 as_zTXt_chunk: true,
             //             },
             //             _ => unreachable!(),

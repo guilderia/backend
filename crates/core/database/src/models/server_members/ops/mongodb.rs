@@ -1,6 +1,6 @@
 use futures::StreamExt;
 use mongodb::options::ReadConcern;
-use revolt_result::Result;
+use guilderia_result::Result;
 
 use crate::{FieldsMember, Member, MemberCompositeKey, PartialMember};
 use crate::{IntoDocumentPath, MongoDb};

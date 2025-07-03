@@ -11,8 +11,8 @@ use bson::{oid::ObjectId, to_bson};
 use futures::StreamExt;
 use iso8601_timestamp::Timestamp;
 use rand::seq::SliceRandom;
-use revolt_permissions::DEFAULT_WEBHOOK_PERMISSIONS;
-use revolt_result::{Error, ErrorType};
+use guilderia_permissions::DEFAULT_WEBHOOK_PERMISSIONS;
+use guilderia_result::{Error, ErrorType};
 use serde::{Deserialize, Serialize};
 use unicode_segmentation::UnicodeSegmentation;
 

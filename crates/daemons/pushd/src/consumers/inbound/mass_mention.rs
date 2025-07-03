@@ -12,7 +12,7 @@ use amqprs::{
 };
 use anyhow::Result;
 use async_trait::async_trait;
-use revolt_database::{
+use guilderia_database::{
     events::rabbit::*, util::bulk_permissions::BulkDatabasePermissionQuery, Database, Member,
     MessageFlagsValue,
 };
@@ -72,7 +72,7 @@ impl MassMessageConsumer {
             .find_sessions_with_subscription(users)
             .await
         {
-            let config = revolt_config::config().await;
+            let config = guilderia_config::config().await;
             for session in sessions {
                 if let Some(sub) = session.subscription {
                     let mut sendable = PayloadToService {

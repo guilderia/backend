@@ -1,4 +1,4 @@
-use revolt_result::Result;
+use guilderia_result::Result;
 
 use crate::{Bot, FieldsBot, PartialBot};
 use crate::{IntoDocumentPath, MongoDb};

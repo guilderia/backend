@@ -1,4 +1,4 @@
-use revolt_result::{create_error, Result};
+use guilderia_result::{create_error, Result};
 
 use crate::{Channel, Database, User};
 

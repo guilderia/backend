@@ -1,6 +1,6 @@
-use revolt_config::configure;
-use revolt_database::DatabaseInfo;
-use revolt_result::Result;
+use guilderia_config::configure;
+use guilderia_database::DatabaseInfo;
+use guilderia_result::Result;
 use tasks::{file_deletion, prune_dangling_files};
 use tokio::try_join;
 

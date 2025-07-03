@@ -2,13 +2,13 @@ use std::{collections::HashSet, hash::RandomState};
 
 use indexmap::{IndexMap, IndexSet};
 use iso8601_timestamp::Timestamp;
-use revolt_config::{config, FeaturesLimits};
-use revolt_models::v0::{
+use guilderia_config::{config, FeaturesLimits};
+use guilderia_models::v0::{
     self, BulkMessageResponse, DataMessageSend, Embed, MessageAuthor, MessageFlags, MessageSort,
     MessageWebhook, PushNotification, ReplyIntent, SendableEmbed, Text,
 };
-use revolt_permissions::{calculate_channel_permissions, ChannelPermission, PermissionValue};
-use revolt_result::{ErrorType, Result};
+use guilderia_permissions::{calculate_channel_permissions, ChannelPermission, PermissionValue};
+use guilderia_result::{ErrorType, Result};
 use ulid::Ulid;
 use validator::Validate;
 
@@ -370,15 +370,15 @@ impl Message {
         // Parse mentions in message.
 
         let mut message_mentions = if let Some(raw_content) = &data.content {
-            revolt_parser::parse_message(raw_content)
+            guilderia_parser::parse_message(raw_content)
         } else {
-            revolt_parser::MessageResults::default()
+            guilderia_parser::MessageResults::default()
         };
 
         message_mentions.mentions_everyone |= mentions_everyone;
         message_mentions.mentions_online |= mentions_online;
 
-        let revolt_parser::MessageResults {
+        let guilderia_parser::MessageResults {
             mut user_mentions,
             mut role_mentions,
             mut mentions_everyone,
@@ -509,7 +509,7 @@ impl Message {
                                 .retain(|m| *member_channel_view_perms.get(m).unwrap_or(&false));
                         }
                     } else {
-                        revolt_config::capture_error(&valid_members.unwrap_err());
+                        guilderia_config::capture_error(&valid_members.unwrap_err());
                         return Err(create_error!(InternalError));
                     }
                 }

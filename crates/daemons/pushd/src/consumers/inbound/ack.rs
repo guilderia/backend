@@ -6,7 +6,7 @@ use amqprs::{
     BasicProperties, Deliver,
 };
 use async_trait::async_trait;
-use revolt_database::{events::rabbit::*, Database};
+use guilderia_database::{events::rabbit::*, Database};
 
 pub struct AckConsumer {
     #[allow(dead_code)]

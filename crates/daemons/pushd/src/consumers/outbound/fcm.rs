@@ -10,8 +10,8 @@ use fcm_v1::{
     message::{Message, Notification},
     Client, Error as FcmError,
 };
-use revolt_database::{events::rabbit::*, Database};
-use revolt_models::v0::{Channel, PushNotification};
+use guilderia_database::{events::rabbit::*, Database};
+use guilderia_models::v0::{Channel, PushNotification};
 use serde_json::Value;
 
 pub struct FcmOutboundConsumer {
@@ -182,11 +182,11 @@ impl FcmOutboundConsumer {
                         .remove_push_subscription_by_session_id(&payload.session_id)
                         .await
                     {
-                        revolt_config::capture_error(&err);
+                        guilderia_config::capture_error(&err);
                     }
                 }
                 err => {
-                    revolt_config::capture_error(&err);
+                    guilderia_config::capture_error(&err);
                 }
             }
         }
@@ -209,7 +209,7 @@ impl AsyncConsumer for FcmOutboundConsumer {
             .consume_event(channel, deliver, basic_properties, content)
             .await
         {
-            revolt_config::capture_anyhow(&err);
+            guilderia_config::capture_anyhow(&err);
             eprintln!("Failed to process FCM event: {err:?}");
         }
     }

@@ -2,7 +2,7 @@ use std::net::{Ipv4Addr, SocketAddr};
 
 use axum::Router;
 
-use revolt_database::DatabaseInfo;
+use guildera_database::DatabaseInfo;
 use tokio::net::TcpListener;
 use utoipa::{
     openapi::security::{ApiKey, ApiKeyValue, SecurityScheme},
@@ -19,7 +19,7 @@ pub mod mime_type;
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
     // Configure logging and environment
-    revolt_config::configure!(files);
+    guilderia_config::configure!(files);
 
     // Wait for ClamAV
     clamav::init().await;

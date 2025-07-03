@@ -1,5 +1,5 @@
 use ::mongodb::SessionCursor;
-use revolt_result::Result;
+use guilderia_result::Result;
 
 use crate::{FieldsMember, Member, MemberCompositeKey, PartialMember};
 

@@ -20,7 +20,7 @@ macro_rules! report_error {
                     $crate::Level::Error,
                 );
             })
-            .map_err(|_| ::revolt_result::create_error!($error))
+            .map_err(|_| ::guilderia_result::create_error!($error))
     };
 }
 
@@ -46,31 +46,31 @@ macro_rules! report_internal_error {
                     $crate::Level::Error,
                 );
             })
-            .map_err(|_| ::revolt_result::create_error!(InternalError))
+            .map_err(|_| ::guilderia_result::create_error!(InternalError))
     };
 }
 
 /// Paths to search for configuration
 static CONFIG_SEARCH_PATHS: [&str; 3] = [
     // current working directory
-    "Revolt.toml",
+    "Guilderia.toml",
     // current working directory - overrides file
-    "Revolt.overrides.toml",
+    "Guilderia.overrides.toml",
     // root directory, for Docker containers
-    "/Revolt.toml",
+    "/Guilderia.toml",
 ];
 
 /// Configuration builder
 static CONFIG_BUILDER: Lazy<RwLock<Config>> = Lazy::new(|| {
     RwLock::new({
         let mut builder = Config::builder().add_source(File::from_str(
-            include_str!("../Revolt.toml"),
+            include_str!("../Guilderia.toml"),
             FileFormat::Toml,
         ));
 
         if std::env::var("TEST_DB").is_ok() {
             builder = builder.add_source(File::from_str(
-                include_str!("../Revolt.test.toml"),
+                include_str!("../Guilderia.test.toml"),
                 FileFormat::Toml,
             ));
         }
@@ -375,7 +375,7 @@ impl Settings {
 
 pub async fn init() {
     println!(
-        ":: Revolt Configuration ::\n\x1b[32m{:?}\x1b[0m",
+        ":: Guilderia Configuration ::\n\x1b[32m{:?}\x1b[0m",
         config().await
     );
 }
@@ -389,7 +389,7 @@ pub async fn config() -> Settings {
     let mut config = read().await.try_deserialize::<Settings>().unwrap();
 
     // auto-detect production nodes
-    if config.hosts.api.contains("https") && config.hosts.api.contains("revolt.chat") {
+    if config.hosts.api.contains("https") && config.hosts.api.contains("guilderia.com") {
         config.production = true;
     }
 

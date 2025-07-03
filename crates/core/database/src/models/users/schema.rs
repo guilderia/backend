@@ -1,5 +1,5 @@
-use revolt_okapi::openapi3::{SecurityScheme, SecuritySchemeData};
-use revolt_rocket_okapi::{
+use guilderia_okapi::openapi3::{SecurityScheme, SecuritySchemeData};
+use guilderia_rocket_okapi::{
     gen::OpenApiGenerator,
     request::{OpenApiFromRequest, RequestHeaderInput},
 };
@@ -11,7 +11,7 @@ impl OpenApiFromRequest<'_> for User {
         _gen: &mut OpenApiGenerator,
         _name: String,
         _required: bool,
-    ) -> revolt_rocket_okapi::Result<RequestHeaderInput> {
+    ) -> guilderia_rocket_okapi::Result<RequestHeaderInput> {
         let mut requirements = schemars::Map::new();
         requirements.insert("Session Token".to_owned(), vec![]);
 

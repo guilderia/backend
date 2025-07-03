@@ -1,6 +1,6 @@
 use futures::future::try_join_all;
 use indexmap::IndexSet;
-use revolt_result::Result;
+use guilderia_result::Result;
 
 use crate::{AppendMessage, FieldsMessage, Message, MessageQuery, PartialMessage, ReferenceDb};
 

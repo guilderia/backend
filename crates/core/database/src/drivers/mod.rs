@@ -11,7 +11,7 @@ use authifier::config::Template;
 use authifier::config::Templates;
 use authifier::Authifier;
 use rand::Rng;
-use revolt_config::config;
+use guilderia_config::config;
 
 pub use self::mongodb::*;
 pub use self::reference::*;

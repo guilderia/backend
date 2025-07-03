@@ -10,7 +10,7 @@ use amqprs::{
 use anyhow::Result;
 use async_trait::async_trait;
 use log::debug;
-use revolt_database::{events::rabbit::*, Database};
+use guilderia_database::{events::rabbit::*, Database};
 
 pub struct FRAcceptedConsumer {
     #[allow(dead_code)]

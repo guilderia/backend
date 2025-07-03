@@ -1,5 +1,5 @@
 use iso8601_timestamp::Timestamp;
-use revolt_result::Result;
+use guilderia_result::Result;
 
 use crate::PolicyChange;
 use crate::ReferenceDb;

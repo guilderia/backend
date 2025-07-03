@@ -1,7 +1,7 @@
 use std::time::Duration;
 
-use revolt_database::{iso8601_timestamp::Timestamp, Database};
-use revolt_result::Result;
+use guilderia_database::{iso8601_timestamp::Timestamp, Database};
+use guilderia_result::Result;
 use tokio::time::sleep;
 
 use log::info;

@@ -1,19 +1,19 @@
 [package]
-name = "revolt-pushd"
+name = "guilderia-pushd"
 version = "0.8.7"
 edition = "2021"
 license = "AGPL-3.0-or-later"
 
 [dependencies]
-revolt-result = { version = "0.8.7", path = "../../core/result" }
-revolt-config = { version = "0.8.7", path = "../../core/config", features = [
+guilderia-result = { version = "0.8.7", path = "../../core/result" }
+guilderia-config = { version = "0.8.7", path = "../../core/config", features = [
     "report-macros",
 ] }
-revolt-database = { version = "0.8.7", path = "../../core/database" }
-revolt-models = { version = "0.8.7", path = "../../core/models", features = [
+guilderia-database = { version = "0.8.7", path = "../../core/database" }
+guilderia-models = { version = "0.8.7", path = "../../core/models", features = [
     "validator",
 ] }
-revolt-presence = { version = "0.8.7", path = "../../core/presence", features = [
+guilderia-presence = { version = "0.8.7", path = "../../core/presence", features = [
     "redis-is-patched",
 ] }
 
@@ -35,7 +35,7 @@ pretty_env_logger = "0.4.0"
 
 #serialization
 serde_json = "1"
-revolt_optional_struct = "0.2.0"
+guilderia_optional_struct = "0.2.0"
 serde = { version = "1", features = ["derive"] }
 iso8601-timestamp = { version = "0.2.10", features = ["serde", "bson"] }
 base64 = "0.22.1"

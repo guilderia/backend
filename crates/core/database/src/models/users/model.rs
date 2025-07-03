@@ -7,10 +7,10 @@ use futures::future::join_all;
 use iso8601_timestamp::Timestamp;
 use once_cell::sync::Lazy;
 use rand::seq::SliceRandom;
-use revolt_config::{config, FeaturesLimits};
-use revolt_models::v0::{self, UserBadges, UserFlags};
-use revolt_presence::filter_online;
-use revolt_result::{create_error, Result};
+use guilderia_config::{config, FeaturesLimits};
+use guilderia_models::v0::{self, UserBadges, UserFlags};
+use guilderia_presence::filter_online;
+use guilderia_result::{create_error, Result};
 use serde_json::json;
 use ulid::Ulid;
 
@@ -301,7 +301,7 @@ impl User {
         const BLOCKED_SUBSTRINGS: &[&str] = &[
             "```",
             "discord.gg",
-            "rvlt.gg",
+            "guilderia.gg",
             "guilded.gg",
             "https://",
             "http://",

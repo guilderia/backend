@@ -1,7 +1,7 @@
 use std::time::Duration;
 
-use revolt_config::{config, report_internal_error};
-use revolt_result::Result;
+use guilderia_config::{config, report_internal_error};
+use guilderia_result::Result;
 
 /// Initialise ClamAV
 pub async fn init() {

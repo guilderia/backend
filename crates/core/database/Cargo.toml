@@ -1,5 +1,5 @@
 [package]
-name = "revolt-database"
+name = "guilderia-database"
 version = "0.8.7"
 edition = "2021"
 license = "AGPL-3.0-or-later"
@@ -17,26 +17,26 @@ tasks = ["isahc", "linkify", "url-escape"]
 async-std-runtime = ["async-std"]
 rocket-impl = ["rocket", "schemars", "revolt_okapi", "revolt_rocket_okapi"]
 axum-impl = ["axum"]
-redis-is-patched = ["revolt-presence/redis-is-patched"]
+redis-is-patched = ["guilderia-presence/redis-is-patched"]
 
 # Default Features
 default = ["mongodb", "async-std-runtime", "tasks"]
 
 [dependencies]
 # Core
-revolt-config = { version = "0.8.7", path = "../config", features = [
+guilderia-config = { version = "0.8.7", path = "../config", features = [
     "report-macros",
 ] }
-revolt-result = { version = "0.8.7", path = "../result" }
-revolt-models = { version = "0.8.7", path = "../models", features = [
+guilderia-result = { version = "0.8.7", path = "../result" }
+guilderia-models = { version = "0.8.7", path = "../models", features = [
     "validator",
 ] }
-revolt-presence = { version = "0.8.7", path = "../presence" }
-revolt-permissions = { version = "0.8.7", path = "../permissions", features = [
+guilderia-presence = { version = "0.8.7", path = "../presence" }
+guilderia-permissions = { version = "0.8.7", path = "../permissions", features = [
     "serde",
     "bson",
 ] }
-revolt-parser = { version = "0.8.7", path = "../parser" }
+guilderia-parser = { version = "0.8.7", path = "../parser" }
 
 # Utility
 log = "0.4"
@@ -56,7 +56,7 @@ isahc = { optional = true, version = "1.7", features = ["json"] }
 
 # Serialisation
 serde_json = "1"
-revolt_optional_struct = "0.2.0"
+guilderia_optional_struct = "0.2.0"
 serde = { version = "1", features = ["derive"] }
 iso8601-timestamp = { version = "0.2.10", features = ["serde", "bson"] }
 
@@ -88,13 +88,13 @@ schemars = { version = "0.8.8", optional = true }
 rocket = { version = "0.5.1", default-features = false, features = [
     "json",
 ], optional = true }
-revolt_okapi = { version = "0.9.1", optional = true }
-revolt_rocket_okapi = { version = "0.10.0", optional = true }
+guilderia_okapi = { version = "0.9.1", optional = true }
+guilderia_rocket_okapi = { version = "0.10.0", optional = true }
 
 # Notifications
 fcm_v1 = "0.3.0"
 web-push = "0.10.0"
-revolt_a2 = { version = "0.10", default-features = false, features = ["ring"] }
+guilderia_a2 = { version = "0.10", default-features = false, features = ["ring"] }
 
 # Authifier
 authifier = { version = "1.0.15", features = ["rocket_impl"] }

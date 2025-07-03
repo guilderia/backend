@@ -1,6 +1,6 @@
 use bson::to_bson;
 use iso8601_timestamp::Timestamp;
-use revolt_result::Result;
+use guilderia_result::Result;
 
 use crate::MongoDb;
 use crate::PolicyChange;

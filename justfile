@@ -1,12 +1,12 @@
 publish:
-    cargo publish --package revolt-parser
-    cargo publish --package revolt-config
-    cargo publish --package revolt-result
-    cargo publish --package revolt-files
-    cargo publish --package revolt-permissions
-    cargo publish --package revolt-models
-    cargo publish --package revolt-presence
-    cargo publish --package revolt-database
+    cargo publish --package guilderia-parser
+    cargo publish --package guilderia-config
+    cargo publish --package guilderia-result
+    cargo publish --package guilderia-files
+    cargo publish --package guilderia-permissions
+    cargo publish --package guilderia-models
+    cargo publish --package guilderia-presence
+    cargo publish --package guilderia-database
 
 patch:
     cargo release version patch --execute

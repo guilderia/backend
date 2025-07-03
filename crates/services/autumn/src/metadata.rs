@@ -1,7 +1,7 @@
 use std::io::Cursor;
 
-use revolt_database::Metadata;
-use revolt_files::{image_size, video_size};
+use guilderia_database::Metadata;
+use guilderia_files::{image_size, video_size};
 use tempfile::NamedTempFile;
 
 /// Intersection of what infer can detect and what image-rs supports

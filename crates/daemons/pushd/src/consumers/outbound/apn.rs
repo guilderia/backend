@@ -7,15 +7,15 @@ use base64::{
     engine::{self},
     Engine as _,
 };
-use revolt_a2::{
+use guilderia_a2::{
     request::{
         notification::{DefaultAlert, NotificationOptions},
         payload::{APSAlert, APSSound, Payload, PayloadLike, APS},
     },
     Client, ClientConfig, Endpoint, Error, ErrorBody, ErrorReason, Priority, PushType, Response,
 };
-use revolt_database::{events::rabbit::*, Database};
-use revolt_models::v0::{Channel, Message, PushNotification};
+use guilderia_database::{events::rabbit::*, Database};
+use guilderia_models::v0::{Channel, Message, PushNotification};
 use serde::Serialize;
 
 // region: payload
@@ -92,7 +92,7 @@ impl ApnsOutboundConsumer {
 
 impl ApnsOutboundConsumer {
     pub async fn new(db: Database) -> Result<ApnsOutboundConsumer, &'static str> {
-        let config = revolt_config::config().await;
+        let config = guilderia_config::config().await;
 
         if config.pushd.apn.pkcs8.is_empty()
             || config.pushd.apn.key_id.is_empty()
@@ -344,11 +344,11 @@ impl ApnsOutboundConsumer {
                         .remove_push_subscription_by_session_id(&payload.session_id)
                         .await
                     {
-                        revolt_config::capture_error(&err);
+                        guilderia_config::capture_error(&err);
                     }
                 }
                 err => {
-                    revolt_config::capture_error(&err);
+                    guilderia_config::capture_error(&err);
                 }
             }
         }
@@ -371,7 +371,7 @@ impl AsyncConsumer for ApnsOutboundConsumer {
             .consume_event(channel, deliver, basic_properties, content)
             .await
         {
-            revolt_config::capture_anyhow(&err);
+            guilderia_config::capture_anyhow(&err);
             eprintln!("Failed to process APN event: {err:?}");
         }
     }

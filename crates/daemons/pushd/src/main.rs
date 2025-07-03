@@ -10,7 +10,7 @@ use amqprs::{
     consumer::AsyncConsumer,
     FieldTable,
 };
-use revolt_config::{config, Settings};
+use guilderia_config::{config, Settings};
 use tokio::sync::Notify;
 
 mod consumers;
@@ -25,15 +25,15 @@ use consumers::{
 #[tokio::main(flavor = "multi_thread", worker_threads = 2)]
 async fn main() {
     // Configure logging and environment
-    revolt_config::configure!(pushd);
+    guilderia_config::configure!(pushd);
 
     // Setup database
-    let db = revolt_database::DatabaseInfo::Auto.connect().await.unwrap();
+    let db = guilderia_database::DatabaseInfo::Auto.connect().await.unwrap();
     let authifier: authifier::Database;
 
     if let Some(client) = match &db {
-        revolt_database::Database::Reference(_) => None,
-        revolt_database::Database::MongoDb(mongo) => Some(mongo),
+        guilderia_database::Database::Reference(_) => None,
+        guilderia_database::Database::MongoDb(mongo) => Some(mongo),
     } {
         authifier =
             authifier::Database::MongoDb(authifier::database::MongoDb(client.database("revolt")));

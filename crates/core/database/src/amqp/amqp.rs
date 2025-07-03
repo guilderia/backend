@@ -5,8 +5,8 @@ use crate::User;
 use amqprs::channel::BasicPublishArguments;
 use amqprs::{channel::Channel, connection::Connection, error::Error as AMQPError};
 use amqprs::{BasicProperties, FieldTable};
-use revolt_models::v0::PushNotification;
-use revolt_presence::filter_online;
+use guilderia_models::v0::PushNotification;
+use guilderia_presence::filter_online;
 
 use serde_json::to_string;
 
@@ -30,7 +30,7 @@ impl AMQP {
         accepted_request_user: &User,
         sent_request_user: &User,
     ) -> Result<(), AMQPError> {
-        let config = revolt_config::config().await;
+        let config = guilderia_config::config().await;
         let payload = FRAcceptedPayload {
             accepted_user: accepted_request_user.to_owned(),
             user: sent_request_user.id.clone(),
@@ -62,7 +62,7 @@ impl AMQP {
         received_request_user: &User,
         sent_request_user: &User,
     ) -> Result<(), AMQPError> {
-        let config = revolt_config::config().await;
+        let config = guilderia_config::config().await;
         let payload = FRReceivedPayload {
             from_user: sent_request_user.to_owned(),
             user: received_request_user.id.clone(),
@@ -175,7 +175,7 @@ impl AMQP {
         server_id: String,
         payload: Vec<PushNotification>,
     ) -> Result<(), AMQPError> {
-        let config = revolt_config::config().await;
+        let config = guilderia_config::config().await;
 
         let payload = MassMessageSentPayload {
             notifications: payload,
@@ -208,7 +208,7 @@ impl AMQP {
         channel_id: String,
         message_id: String,
     ) -> Result<(), AMQPError> {
-        let config = revolt_config::config().await;
+        let config = guilderia_config::config().await;
 
         let payload = AckPayload {
             user_id: user_id.clone(),

@@ -3,8 +3,8 @@ use std::collections::hash_map::Entry;
 use super::AbstractChannels;
 use crate::ReferenceDb;
 use crate::{Channel, FieldsChannel, PartialChannel};
-use revolt_permissions::OverrideField;
-use revolt_result::Result;
+use guilderia_permissions::OverrideField;
+use guilderia_result::Result;
 
 #[async_trait]
 impl AbstractChannels for ReferenceDb {

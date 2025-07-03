@@ -8,7 +8,7 @@ use base64::{
     engine::{self},
     Engine as _,
 };
-use revolt_database::{events::rabbit::*, Database};
+use guilderia_database::{events::rabbit::*, Database};
 use web_push::{
     ContentEncoding, IsahcWebPushClient, SubscriptionInfo, SubscriptionKeys, VapidSignatureBuilder,
     WebPushClient, WebPushError, WebPushMessageBuilder,
@@ -156,7 +156,7 @@ impl AsyncConsumer for VapidOutboundConsumer {
             .consume_event(channel, deliver, basic_properties, content)
             .await
         {
-            revolt_config::capture_anyhow(&err);
+            guilderia_config::capture_anyhow(&err);
             eprintln!("Failed to process Vapid event: {err:?}");
         }
     }

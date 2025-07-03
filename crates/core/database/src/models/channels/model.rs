@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 
-use revolt_config::config;
-use revolt_models::v0::{self, MessageAuthor};
-use revolt_permissions::OverrideField;
-use revolt_result::Result;
+use guilderia_config::config;
+use guilderia_models::v0::{self, MessageAuthor};
+use guilderia_permissions::OverrideField;
+use guilderia_result::Result;
 use serde::{Deserialize, Serialize};
 use ulid::Ulid;
 
@@ -778,7 +778,7 @@ impl IntoDocumentPath for FieldsChannel {
 
 #[cfg(test)]
 mod tests {
-    use revolt_permissions::{calculate_channel_permissions, ChannelPermission};
+    use guilderia_permissions::{calculate_channel_permissions, ChannelPermission};
 
     use crate::{fixture, util::permissions::DatabasePermissionQuery};
 

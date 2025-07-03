@@ -10,7 +10,7 @@ use amqprs::{
 use anyhow::Result;
 use async_trait::async_trait;
 use log::debug;
-use revolt_database::{events::rabbit::*, Database};
+use guilderia_database::{events::rabbit::*, Database};
 
 pub struct GenericConsumer {
     #[allow(dead_code)]
@@ -73,7 +73,7 @@ impl GenericConsumer {
             .find_sessions_with_subscription(&payload.users)
             .await
         {
-            let config = revolt_config::config().await;
+            let config = guilderia_config::config().await;
             for session in sessions {
                 if let Some(sub) = session.subscription {
                     let mut sendable = PayloadToService {
@@ -139,7 +139,7 @@ impl AsyncConsumer for GenericConsumer {
             .consume_event(channel, deliver, basic_properties, content)
             .await
         {
-            revolt_config::capture_anyhow(&err);
+            guilderia_config::capture_anyhow(&err);
             eprintln!("Failed to process generic event: {err:?}");
         }
     }

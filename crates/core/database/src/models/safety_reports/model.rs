@@ -1,4 +1,4 @@
-use revolt_models::v0::{ReportStatus, ReportedContent};
+use guilderia_models::v0::{ReportStatus, ReportedContent};
 
 auto_derived!(
     /// User-generated platform moderation report
